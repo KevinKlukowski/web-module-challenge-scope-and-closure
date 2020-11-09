@@ -80,21 +80,18 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(inning, numInnings){
-  let homeScore = 0;
-  let awayScore = 0; 
-
-  for(let i = 0; i < numInnings; i++){
-    const currentScore = inning(numInnings);
-    homeScore = homeScore + currentScore.Home;
-    awayScore = awayScore + currentScore.Away;
+function finalScore (inning, numInning) {
+  let score = {
+    Home: 0,
+    Away: 0,
   }
-  return {
-    Home: inning(),
-    Away: inning(),
+  for(let i = 0; i < numInning; i++) {
+    score.Home += inning();
+    score.Away += inning();
   }
+  return score;
 }
-finalScore(inning, 9);
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 // create a function called getInningScore 
@@ -152,7 +149,9 @@ Use the scoreboard function below to do the following:
 
 
 function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+  return function getInningScore (inning, numOfInnings) {
+    
+  }
 }
 
 
