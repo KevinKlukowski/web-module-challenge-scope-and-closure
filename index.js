@@ -28,8 +28,10 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+  counter1 invokes the counterMaker function and counter2 adds 1 to the variable count each time it is called.
   
   2. Which of the two uses a closure? How can you tell?
+  counter1 uses a closure because it's using data from a function. 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
@@ -61,10 +63,8 @@ Use the inning function below to do the following:
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
 */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  return Math.floor(Math.random() * 2);
 }
 
 /* Task 3: finalScore()
@@ -80,19 +80,32 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, numInnings){
+  let homeScore = 0;
+  let awayScore = 0; 
 
-  /*Code Here*/
-
+  for(let i = 0; i < numInnings; i++){
+    const currentScore = inning(numInnings);
+    homeScore = homeScore + currentScore.Home;
+    awayScore = awayScore + currentScore.Away;
+  }
+  return {
+    Home: inning(),
+    Away: inning(),
+  }
 }
+finalScore(inning, 9);
 
 /* Task 4: 
 // create a function called getInningScore 
 // the function should take the inning function as an argument 
 // it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  return {
+    Home: inning(),
+    Away: inning(),
+  }
 }
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
