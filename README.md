@@ -64,8 +64,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+closure is being used in personalDice where name is being pulled from the nested function.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The name called stays the same but the random number generated stays different.
 c. What is the lexical scope of `newRoll`? 
+newRoll has function scope...?
 
 ### Task 2c - Exit Ticket
 
