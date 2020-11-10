@@ -148,10 +148,24 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(/* CODE HERE */) {
-  return function getInningScore (inning, numOfInnings) {
-    
+function scoreboard(getInningScore, inning, numInnings) {
+  const scoreArr = [];
+  let homeScore = 0;
+  let awayScore = 0;
+
+  const getInningScore = function () {
+    return Math.floor(Math.random() * 3);
   }
+  
+  for(i = 0; i < numInnings; i++) {
+    const newScore = getInningScore(inning);
+    homeScore += inning();
+    awayScore += inning();
+    scoreArr.push(`Inning ${i+1}: Away ${score.Away}: Home %{score.Home}`);
+  } if (score.Home === score.Away) {
+    return `This game will require extra innings: Away 12 - Home 12`;
+  }
+  return scoreArr;
 }
 
 
